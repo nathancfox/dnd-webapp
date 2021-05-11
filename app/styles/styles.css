@@ -6,10 +6,72 @@ html {
   box-sizing: inherit;
 }
 
+body {
+    max-width: 1200px;
+    margin: auto;
+}
+
 h1 {
-  margin: 10px;
-  margin-left: 25px;
+  margin-top: 10px;
+  margin-bottom: 50px;
   padding: 10px;
   padding-left: 0px;
   border-bottom: 2px solid #777777;
+}
+
+header {
+    height: 10vh;
+}
+
+main  {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-rows: 100px 1fr 1fr;
+    grid-template-areas:
+        "cname exp-points level"
+        "characteristics die-roller die-roller"
+        "stats die-roller die-roller";
+    gap: 20px;
+    height: 80vh;
+}
+
+.module {
+    border: 3px solid #b30000;  
+    background-color: #b3000055;
+    padding: 10px;
+}
+
+input {
+    margin-top: 10px;
+}
+
+textarea {
+    box-sizing: border-box;
+    width: 97%;
+    height: 85%;
+    margin-top: 10px;
+}
+
+#cname {
+    grid-area: cname;
+}
+
+#exp-points {
+    grid-area: exp-points;
+}
+
+#level {
+    grid-area: level;
+}
+
+#characteristics {
+    grid-area: characteristics;
+}
+
+#die-roller {
+    grid-area: die-roller;
+}
+
+#stats{
+    grid-area: stats;
 }

@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-     <meta charset="utf-8">
-     <meta name="author" content="Nathan Fox">
-     <meta name="description" content="Dungeons and Dragons 5e Character Sheet Manager">
-     <title>DnD Web App</title>
-     <link rel="stylesheet" href="styles/styles.css">
-  </head>
-  <h1>Dungeons and Dragons 5e Character Sheet Manager</h1>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Nathan Fox">
+        <meta name="description" content="Dungeons and Dragons 5e Character Sheet Manager">
+        <title>DnD Web App</title>
+        <link rel="stylesheet" href="styles/styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>Dungeons and Dragons 5e Character Sheet Manager</h1>
+        </header>
+        <main>
+            <section class="module" id="cname">
+                <label class="module-label">
+                    Character Name</br>
+                    <input type="text">
+                </label>
+            </section>
+            <section class="module" id="exp-points">
+                <label class="module-label">
+                    Experience Points</br>
+                    <input type="number">
+                </label>
+            </section>
+            <section class="module" id="level">
+                <label class="module-label">
+                    Level</br>
+                    <input type="number">
+                </label>
+            </section>
+            <section class="module" id="characteristics">
+                <label class="module-label">
+                    Characteristics</br>
+                    <textarea></textarea>
+                </label>
+            </section>
+            <section class="module" id="die-roller">
+                <label class="module-label">
+                    Die Rolling Utility
+                </label>
+            </section>
+            <section class="module" id="stats">
+                <label class="module-label">
+                    Stats</br>
+                    <textarea></textarea>
+                </label>
+            </section>
+        </main>
+    </body>
 </html>
