@@ -13,28 +13,97 @@
         </header>
         <main>
             <section class="module" id="cname">
-                <label class="module-label">
-                    Character Name</br>
-                    <input type="text">
-                </label>
+                <form autocomplete="off" name="character_name_form">
+                    <legend class="module-label">Character Name</legend>
+                    <label>Character Name
+                        <input type="text">
+                    </label>
+                </form>
             </section>
             <section class="module" id="exp-points">
-                <label class="module-label">
-                    Experience Points</br>
-                    <input type="number">
-                </label>
+                <form autocomplete="off" name="characteristics_form">
+                    <legend class="module-label">Experience Points</legend>
+                    <label class="module-label">Experience Points
+                        <input type="number">
+                    </label>
+                </form>
             </section>
             <section class="module" id="level">
-                <label class="module-label">
-                    Level</br>
-                    <input type="number">
-                </label>
+                <form autocomplete="off" name="level_form">
+                    <legend class="module-label">Level</legend>
+                    <label>Level
+                        <input type="number">
+                    </label>
+                </form>
             </section>
             <section class="module" id="characteristics">
-                <label class="module-label">
-                    Characteristics</br>
-                    <textarea></textarea>
-                </label>
+               <form autocomplete="off" name="characteristics_form">
+                    <fieldset>
+                         <legend class="module-label">Characteristics</legend>
+                         <label>Race
+                              <select>
+                                   <option value=""></option>
+                                   <option value="dragonborn">Dragonborn</option>
+                                   <option value="dwarf">Dwarf</option>
+                                   <option value="elf">Elf</option>
+                                   <option value="gnome">Gnome</option>
+                                   <option value="half_elf">Half-Elf</option>
+                                   <option value="halfling">Halfling</option>
+                                   <option value="half_orc">Half-Orc</option>
+                                   <option value="human">Human</option>
+                                   <option value="tiefling">Tiefling</option>
+                              </select>
+                         </label>
+                         <label>Class
+                              <select>
+                                   <option value=""></option>
+                                   <option value="barbarian">Barbarian</option>
+                                   <option value="bard">Bard</option>
+                                   <option value="cleric">Cleric</option>
+                                   <option value="druid">Druid</option>
+                                   <option value="fighter">Fighter</option>
+                                   <option value="monk">Monk</option>
+                                   <option value="paladin">Paladin</option>
+                                   <option value="ranger">Ranger</option>
+                                   <option value="rogue">Rogue</option>
+                                   <option value="sorcerer">Sorcerer</option>
+                                   <option value="warlock">Warlock</option>
+                                   <option value="wizard">Wizard</option>
+                              </select>
+                         </label>
+                         <label>Background
+                              <select>
+                                   <option value=""></option>
+                                   <option value="acolyte">Acolyte</option>
+                                   <option value="criminal_spy">Criminal/Spy</option>
+                                   <option value="folk_hero">Folk Hero</option>
+                                   <option value="noble">Noble</option>
+                                   <option value="sage">Sage</option>
+                                   <option value="soldier">Soldier</option>
+                              </select>
+                         </label>
+                         <label>Alignment
+                              <select>
+                                   <option value=""></option>
+                                   <optgroup label="Lawful">
+                                        <option value="lawful_good">Lawful Good</option>
+                                        <option value="lawful_neutral">Lawful Neutral</option>
+                                        <option value="lawful_evil">Lawful Evil</option>
+                                   </optgroup>
+                                   <optgroup label="Neutral">
+                                        <option value="neutral_good">Neutral Good</option>
+                                        <option value="neutral_neutral">True Neutral</option>
+                                        <option value="neutral_evil">Neutral Evil</option>
+                                   </optgroup>
+                                   <optgroup label="Chaotic">
+                                        <option value="chaotic_good">Chaotic Good</option>
+                                        <option value="chaotic_neutral">Chaotic Neutral</option>
+                                        <option value="chaotic_evil">Chaotic Evil</option>
+                                   </optgroup>
+                              </select>
+                          </label>
+                    </fieldset>
+               </form>
             </section>
             <section class="module" id="die-roller">
                 <label class="module-label">
