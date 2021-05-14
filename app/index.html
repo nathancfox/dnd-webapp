@@ -6,6 +6,7 @@
         <meta name="description" content="Dungeons and Dragons 5e Character Sheet Manager">
         <title>DnD Web App</title>
         <link rel="stylesheet" href="styles/styles.css">
+        <script src="scripts/dice.js" defer></script>
     </head>
     <body>
         <header>
@@ -15,7 +16,7 @@
             <section class="module" id="cname">
                 <form autocomplete="off" name="character_name_form">
                     <legend class="module-label">Character Name</legend>
-                    <label>Character Name
+                    <label class="form-element-label">
                         <input type="text">
                     </label>
                 </form>
@@ -23,16 +24,16 @@
             <section class="module" id="exp-points">
                 <form autocomplete="off" name="characteristics_form">
                     <legend class="module-label">Experience Points</legend>
-                    <label class="module-label">Experience Points
-                        <input type="number">
+                    <label class="form-element-label">
+                        <input type="number" min="0">
                     </label>
                 </form>
             </section>
             <section class="module" id="level">
                 <form autocomplete="off" name="level_form">
                     <legend class="module-label">Level</legend>
-                    <label>Level
-                        <input type="number">
+                    <label class="form-element-label">
+                        <input type="number" min="1">
                     </label>
                 </form>
             </section>
@@ -40,21 +41,21 @@
                <form autocomplete="off" name="characteristics_form">
                     <fieldset>
                          <legend class="module-label">Characteristics</legend>
-                         <label>Race
+                         <label class="form-element-label"><span class="fixed-width-label">Race</span>
                               <select>
                                    <option value=""></option>
-                                   <option value="dragonborn">Dragonborn</option>
                                    <option value="dwarf">Dwarf</option>
                                    <option value="elf">Elf</option>
+                                   <option value="halfling">Halfling</option>
+                                   <option value="human">Human</option>
+                                   <option value="dragonborn">Dragonborn</option>
                                    <option value="gnome">Gnome</option>
                                    <option value="half_elf">Half-Elf</option>
-                                   <option value="halfling">Halfling</option>
                                    <option value="half_orc">Half-Orc</option>
-                                   <option value="human">Human</option>
                                    <option value="tiefling">Tiefling</option>
                               </select>
                          </label>
-                         <label>Class
+                         <label class="form-element-label"><span class="fixed-width-label">Class</span>
                               <select>
                                    <option value=""></option>
                                    <option value="barbarian">Barbarian</option>
@@ -71,18 +72,25 @@
                                    <option value="wizard">Wizard</option>
                               </select>
                          </label>
-                         <label>Background
+                         <label class="form-element-label"><span class="fixed-width-label">Background</span>
                               <select>
                                    <option value=""></option>
                                    <option value="acolyte">Acolyte</option>
-                                   <option value="criminal_spy">Criminal/Spy</option>
+                                   <option value="charlatan">Charlatan</option>
+                                   <option value="criminal">Criminal</option>
+                                   <option value="entertainer">Entertainer</option>
                                    <option value="folk_hero">Folk Hero</option>
+                                   <option value="guild_artisan">Guild Artisan</option>
+                                   <option value="hermit">Hermit</option>
                                    <option value="noble">Noble</option>
+                                   <option value="outlander">Outlander</option>
                                    <option value="sage">Sage</option>
+                                   <option value="sailor">Sailor</option>
                                    <option value="soldier">Soldier</option>
+                                   <option value="urchin">Urchin</option>
                               </select>
                          </label>
-                         <label>Alignment
+                         <label class="form-element-label"><span class="fixed-width-label">Alignment</span>
                               <select>
                                    <option value=""></option>
                                    <optgroup label="Lawful">
@@ -105,35 +113,37 @@
                     </fieldset>
                </form>
             </section>
-            <section class="module" id="die-roller">
-                <label class="module-label">
-                    Die Rolling Utility
-                </label>
-            </section>
             <section class="module" id="stats">
                 <form autocomplete="off" name="characteristics_form">
                     <fieldset>
                          <legend class="module-label">Abilities</legend>
-                         <label>Strength
+                         <label class="form-element-label"><span class="fixed-width-label">Strength</span>
                              <input type="number" min="1" max="30" placeholder="0">
                          </label>
-                         <label>Dexterity
+                         <label class="form-element-label"><span class="fixed-width-label">Dexterity</span>
                              <input type="number" min="1" max="30" placeholder="0">
                          </label>
-                         <label>Constitution
+                         <label class="form-element-label"><span class="fixed-width-label">Constitution</span>
                              <input type="number" min="1" max="30" placeholder="0">
                          </label>
-                         <label>Intelligence
+                         <label class="form-element-label"><span class="fixed-width-label">Intelligence</span>
                              <input type="number" min="1" max="30" placeholder="0">
                          </label>
-                         <label>Wisdom
+                         <label class="form-element-label"><span class="fixed-width-label">Wisdom</span>
                              <input type="number" min="1" max="30" placeholder="0">
                          </label>
-                         <label>Charisma
+                         <label class="form-element-label"><span class="fixed-width-label">Charisma</span>
                              <input type="number" min="1" max="30" placeholder="0">
                          </label>
                     </fieldset>
                 </form>
+            </section>
+            <section class="module" id="die-roller">
+                <h3>Die Rolling Utility</h3>
+                <div class="die">
+                    <p class="die-result" id="d6-result"></p>
+                    <button type="button" id="roll-d6" class="roll-button">Roll d6</button>
+                </div>
             </section>
         </main>
     </body>
