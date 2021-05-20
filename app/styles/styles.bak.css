@@ -7,12 +7,11 @@ html {
 }
 
 body {
-    /* max-width: 1200px; */
+    max-width: 1200px;
     margin: auto;
 }
 
 h1 {
-    display: inline-block;
     margin-top: 10px;
     margin-bottom: 50px;
     padding: 10px;
@@ -36,16 +35,13 @@ header {
 
 main  {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-rows: 100px 1fr 1fr;
     grid-template-areas:
-        "cname characteristics characteristics characteristics exp-points exp-points level"
-        "hit-points hit-points hit-points saving-throws abilities die-roller die-roller"
-        "armor-class speed initiative skills abilities die-roller die-roller"
-        "death-saves death-saves hit-dice skills abilities die-roller die-roller"
-        "notes notes notes skills abilities die-roller die-roller"
-        "notes notes notes miscellany miscellany die-roller die-roller";
-    gap: 2px;
+        "cname exp-points level"
+        "characteristics die-roller die-roller"
+        "stats die-roller die-roller";
+    gap: 20px;
     height: 80vh;
 }
 
@@ -104,10 +100,6 @@ input {
     grid-area: cname;
 }
 
-#characteristics {
-    grid-area: characteristics;
-}
-
 #exp-points {
     grid-area: exp-points;
 }
@@ -116,50 +108,14 @@ input {
     grid-area: level;
 }
 
-#hit-points {
-    grid-area: hit-points;
-}
-
-#saving-throws {
-    grid-area: saving-throws;
-}
-
-#abilities{
-    grid-area: abilities;
+#characteristics {
+    grid-area: characteristics;
 }
 
 #die-roller {
     grid-area: die-roller;
 }
 
-#armor-class {
-    grid-area: armor-class;
-}
-
-#speed {
-    grid-area: speed;
-}
-
-#initiative {
-    grid-area: initiative;
-}
-
-#skills {
-    grid-area: skills;
-}
-
-#death-saves {
-    grid-area: death-saves;
-}
-
-#hit-dice {
-    grid-area: hit-dice;
-}
-
-#notes {
-    grid-area: notes;
-}
-
-#miscellany {
-    grid-area: miscellany;
+#stats{
+    grid-area: stats;
 }

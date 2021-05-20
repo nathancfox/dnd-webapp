@@ -5,13 +5,12 @@
         <meta name="author" content="Nathan Fox">
         <meta name="description" content="Dungeons and Dragons 5e Character Sheet Manager">
         <title>DnD Web App</title>
-        <link rel="stylesheet" href="styles/styles.css">
-        <script src="scripts/dice.js" defer></script>
+        <link rel="stylesheet" href="styles/styles.bak.css">
+        <script src="scripts/dice.bak.js" defer></script>
     </head>
     <body>
         <header>
             <h1>Dungeons and Dragons 5e Character Sheet Manager</h1>
-            <button type="submit" id="save-sheet">Save</button>
         </header>
         <main>
             <section class="module" id="cname">
@@ -19,6 +18,22 @@
                     <legend class="module-label">Character Name</legend>
                     <label class="form-element-label">
                         <input type="text">
+                    </label>
+                </form>
+            </section>
+            <section class="module" id="exp-points">
+                <form autocomplete="off" name="characteristics_form">
+                    <legend class="module-label">Experience Points</legend>
+                    <label class="form-element-label">
+                        <input type="number" min="0">
+                    </label>
+                </form>
+            </section>
+            <section class="module" id="level">
+                <form autocomplete="off" name="level_form">
+                    <legend class="module-label">Level</legend>
+                    <label class="form-element-label">
+                        <input type="number" min="1">
                     </label>
                 </form>
             </section>
@@ -98,39 +113,7 @@
                     </fieldset>
                </form>
             </section>
-            <section class="module" id="exp-points">
-                <form autocomplete="off" name="characteristics_form">
-                    <legend class="module-label">Experience Points</legend>
-                    <label class="form-element-label">
-                        <input type="number" min="0">
-                    </label>
-                </form>
-            </section>
-            <section class="module" id="level">
-                <form autocomplete="off" name="level_form">
-                    <legend class="module-label">Level</legend>
-                    <label class="form-element-label">
-                        <input type="number" min="1">
-                    </label>
-                </form>
-            </section>
-            <section class="module" id="hit-points">
-                <form autocomplete="off" name="level_form">
-                    <legend class="module-label">Hit Points</legend>
-                    <label class="form-element-label">
-                        <input type="number" min="1">
-                    </label>
-                </form>
-            </section>
-            <section class="module" id="saving-throws">
-                <form autocomplete="off" name="level_form">
-                    <legend class="module-label">Saving Throws</legend>
-                    <label class="form-element-label">
-                        <input type="number" min="1">
-                    </label>
-                </form>
-            </section>
-            <section class="module" id="abilities">
+            <section class="module" id="stats">
                 <form autocomplete="off" name="characteristics_form">
                     <fieldset>
                          <legend class="module-label">Abilities</legend>
@@ -155,99 +138,11 @@
                     </fieldset>
                 </form>
             </section>
-            <section class="module" id="armor-class">
-                <form autocomplete="off" name="level_form">
-                    <legend class="module-label">Armor Class</legend>
-                    <label class="form-element-label">
-                        <input type="number" min="1">
-                    </label>
-                </form>
-            </section>
-            <section class="module" id="speed">
-                <form autocomplete="off" name="level_form">
-                    <legend class="module-label">Speed</legend>
-                    <label class="form-element-label">
-                        <input type="number" min="1">
-                    </label>
-                </form>
-            </section>
-            <section class="module" id="initiative">
-                <form autocomplete="off" name="level_form">
-                    <legend class="module-label">Initiative</legend>
-                    <label class="form-element-label">
-                        <input type="number" min="1">
-                    </label>
-                </form>
-            </section>
-            <section class="module" id="skills">
-                <form autocomplete="off" name="level_form">
-                    <legend class="module-label">Skills</legend>
-                    <label class="form-element-label">
-                        <input type="number" min="1">
-                    </label>
-                </form>
-            </section>
-            <section class="module" id="death-saves">
-                <form autocomplete="off" name="level_form">
-                    <legend class="module-label">Death Saves</legend>
-                    <label class="form-element-label">
-                        <input type="number" min="1">
-                    </label>
-                </form>
-            </section>
-            <section class="module" id="hit-dice">
-                <form autocomplete="off" name="level_form">
-                    <legend class="module-label">Hit Dice</legend>
-                    <label class="form-element-label">
-                        <input type="number" min="1">
-                    </label>
-                </form>
-            </section>
-            <section class="module" id="notes">
-                <form autocomplete="off" name="level_form">
-                    <legend class="module-label">Notes</legend>
-                    <label class="form-element-label">
-                        <input type="number" min="1">
-                    </label>
-                </form>
-            </section>
-            <section class="module" id="miscellany">
-                <form autocomplete="off" name="level_form">
-                    <legend class="module-label">Miscellany</legend>
-                    <label class="form-element-label">
-                        <input type="number" min="1">
-                    </label>
-                </form>
-            </section>
             <section class="module" id="die-roller">
                 <h3>Die Rolling Utility</h3>
                 <div class="die">
-                    <p class="die-result" id="d4-result" data-die-num="4">d4</p>
-                    <button type="button" class="roll-button" id="roll-d4">Roll</button>
-                </div>
-                <div class="die">
-                    <p class="die-result" id="d6-result" data-die-num="6">d6</p>
-                    <button type="button" class="roll-button" id="roll-d6">Roll</button>
-                </div>
-                <div class="die">
-                    <p class="die-result" id="d8-result" data-die-num="8">d8</p>
-                    <button type="button" class="roll-button" id="roll-d8">Roll</button>
-                </div>
-                <div class="die">
-                    <p class="die-result" id="d10-result" data-die-num="10">d10</p>
-                    <button type="button" class="roll-button" id="roll-d10">Roll</button>
-                </div>
-                <div class="die">
-                    <p class="die-result" id="d10-result" data-die-num="10">d10</p>
-                    <button type="button" class="roll-button" id="roll-d10">Roll</button>
-                </div>
-                <div class="die">
-                    <p class="die-result" id="d12-result" data-die-num="12">d12</p>
-                    <button type="button" class="roll-button" id="roll-d12">Roll</button>
-                </div>
-                <div class="die">
-                    <p class="die-result" id="d20-result" data-die-num="20">d20</p>
-                    <button type="button" class="roll-button" id="roll-d20">Roll</button>
+                    <p class="die-result" id="d6-result">d6</p>
+                    <button type="button" id="roll-d6" class="roll-button">Roll</button>
                 </div>
             </section>
         </main>
