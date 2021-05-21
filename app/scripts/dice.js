@@ -1,16 +1,35 @@
-const button = document.querySelector('#roll-d6');
-button.addEventListener('click', updateResult);
-result = document.querySelector('#d6-result');
+let dice = document.querySelectorAll('.die');
+let dice_objs = new Map();
+for (let i = 0; i < dice.length; i++) {
+    new_die = new Object();
+    new_die.number = dice[i].getAttribute('number');
+    for (let j = 0; j < dice[i].children.length; j++) {
+        if (dice[i].children[j].className === 'die-result') {
+            new_die.result_id = dice[i].children[j].id;
+        } else if (dice[i].children[j].className === 'roll-button') {
+            new_die.button_id = dice[i].children[j].id;
+        }
+    }
+    dice_objs.set(dice[i].id, new_die);
+}
 
-function updateResult() {
-    result.textContent = roll(6);
+for (let [key, value] of dice_objs) {
+    button = document.querySelector('#' + value.button_id)
+    button.addEventListener('click',
+        function() {updateResult(value.number, value.result_id)}
+    )
+}
+
+function updateResult(number, result_id) {
+    result = document.querySelector('#' + result_id);
+    result.textContent = roll(number);
+}
+
+function roll(max) {
+    return getRandomInt(max) + 1;
 }
 
 function getRandomInt(max) {
     // Returns random integer in interval [0, max)
     return Math.floor(Math.random() * max);
-}
-
-function roll(max) {
-    return getRandomInt(max) + 1;
 }

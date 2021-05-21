@@ -24,7 +24,7 @@
             </section>
             <section class="module" id="characteristics">
                <form autocomplete="off" name="characteristics_form">
-                    <fieldset>
+                    <fieldset class="flex-rows">
                          <legend class="module-label">Characteristics</legend>
                          <label class="form-element-label"><span class="fixed-width-label">Race</span>
                               <select>
@@ -132,7 +132,7 @@
             </section>
             <section class="module" id="abilities">
                 <form autocomplete="off" name="characteristics_form">
-                    <fieldset>
+                    <fieldset class="flex-cols">
                          <legend class="module-label">Abilities</legend>
                          <label class="form-element-label"><span class="fixed-width-label">Strength</span>
                              <input type="number" min="1" max="30" placeholder="0">
@@ -221,33 +221,35 @@
             </section>
             <section class="module" id="die-roller">
                 <h3>Die Rolling Utility</h3>
-                <div class="die">
-                    <p class="die-result" id="d4-result" data-die-num="4">d4</p>
-                    <button type="button" class="roll-button" id="roll-d4">Roll</button>
-                </div>
-                <div class="die">
-                    <p class="die-result" id="d6-result" data-die-num="6">d6</p>
-                    <button type="button" class="roll-button" id="roll-d6">Roll</button>
-                </div>
-                <div class="die">
-                    <p class="die-result" id="d8-result" data-die-num="8">d8</p>
-                    <button type="button" class="roll-button" id="roll-d8">Roll</button>
-                </div>
-                <div class="die">
-                    <p class="die-result" id="d10-result" data-die-num="10">d10</p>
-                    <button type="button" class="roll-button" id="roll-d10">Roll</button>
-                </div>
-                <div class="die">
-                    <p class="die-result" id="d10-result" data-die-num="10">d10</p>
-                    <button type="button" class="roll-button" id="roll-d10">Roll</button>
-                </div>
-                <div class="die">
-                    <p class="die-result" id="d12-result" data-die-num="12">d12</p>
-                    <button type="button" class="roll-button" id="roll-d12">Roll</button>
-                </div>
-                <div class="die">
-                    <p class="die-result" id="d20-result" data-die-num="20">d20</p>
-                    <button type="button" class="roll-button" id="roll-d20">Roll</button>
+                <div class="flex-rows" id="dice-container">
+                    <div class="die" id="d4" number="4">
+                        <p class="die-result" id="d4-result"></p>
+                        <button type="button" class="roll-button" id="roll-d4">d4</button>
+                    </div>
+                    <div class="die" id="d6" number="6">
+                        <p class="die-result" id="d6-result"></p>
+                        <button type="button" class="roll-button" id="roll-d6">d6</button>
+                    </div>
+                    <div class="die" id="d8" number="8">
+                        <p class="die-result" id="d8-result"></p>
+                        <button type="button" class="roll-button" id="roll-d8">d8</button>
+                    </div>
+                    <div class="die" id="d10" number="10">
+                        <p class="die-result" id="d10-result"></p>
+                        <button type="button" class="roll-button" id="roll-d10">d10</button>
+                    </div>
+                    <div class="die" id="d12" number="12">
+                        <p class="die-result" id="d12-result"></p>
+                        <button type="button" class="roll-button" id="roll-d12">d12</button>
+                    </div>
+                    <div class="die" id="d20" number="20">
+                        <p class="die-result" id="d20-result"></p>
+                        <button type="button" class="roll-button" id="roll-d20">d20</button>
+                    </div>
+                    <div class="die" id="d100" number="100">
+                        <p class="die-result" id="d100-result"></p>
+                        <button type="button" class="roll-button" id="roll-d100">d100</button>
+                    </div>
                 </div>
             </section>
         </main>
