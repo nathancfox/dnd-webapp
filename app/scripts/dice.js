@@ -14,19 +14,29 @@ for (let i = 0; i < dice.length; i++) {
 }
 
 for (let [key, value] of dice_objs) {
-    button = document.querySelector('#' + value.button_id)
-    button.addEventListener('click',
-        function() {updateResult(value.number, value.result_id)}
-    )
+    button = document.querySelector('#' + value.button_id);
+    if (value.button_id === 'roll-d100') {
+        button.addEventListener('click',
+            function() {
+                updateResult(value.number, value.result_id, 10);
+            }
+        )
+    } else {
+        button.addEventListener('click',
+            function() {
+                updateResult(value.number, value.result_id, 1);
+            }
+        )
+    }
 }
 
-function updateResult(number, result_id) {
+function updateResult(number, result_id, multiplier) {
     result = document.querySelector('#' + result_id);
-    result.textContent = roll(number);
+    result.textContent = roll(number, multiplier);
 }
 
-function roll(max) {
-    return getRandomInt(max) + 1;
+function roll(max, multiplier) {
+    return (getRandomInt(max) + 1) * multiplier ;
 }
 
 function getRandomInt(max) {
