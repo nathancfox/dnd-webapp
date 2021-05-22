@@ -6,26 +6,10 @@ html {
   box-sizing: inherit;
 }
 
+/* Document Sections */
+
 body {
     margin: auto;
-}
-
-h1 {
-    display: inline-block;
-    margin-top: 10px;
-    margin-bottom: 50px;
-    padding: 10px;
-    padding-left: 0px;
-    border-bottom: 2px solid #777777;
-}
-
-h3 {
-    margin: 10px;
-    margin-left: 20px;
-    padding: 10px;
-    padding-left: 0px;
-    border-bottom: 2px solid #777777;
-    width:15em;
 }
 
 header {
@@ -47,8 +31,43 @@ main  {
     height: 80vh;
 }
 
+/* Text Types */
+
+h1 {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    padding: 10px;
+    padding-left: 0px;
+    border-bottom: 2px solid #777777;
+}
+
+h3 {
+    margin: 10px;
+    margin-left: 20px;
+    padding: 10px;
+    padding-left: 0px;
+    border-bottom: 2px solid #777777;
+    width:15em;
+}
+
+/* Classes - General */
+
+.flex-rows {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flex-cols {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Classes - Modules */
+
 .module {
-    border: 3px solid #b30000;  
+    border: 3px solid #b30000;
     background-color: #b3000055;
     padding: 10px;
 }
@@ -63,6 +82,8 @@ main  {
     display: inline-block;
 }
 
+/* Classes - Forms */
+
 input {
     margin-top: 10px;
 }
@@ -70,6 +91,8 @@ input {
 input[type=number] {
     width: 10em;
 }
+
+/* Dice Roller Utility */
 
 .die {
     margin: 10px;
@@ -98,77 +121,67 @@ input[type=number] {
     margin: 10px 0px 0px 0px;
 }
 
-.flex-rows {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.flex-cols {
-    display: flex;
-    flex-direction: column;
-}
-
-#cname {
-    grid-area: cname;
-}
-
-#characteristics {
-    grid-area: characteristics;
-}
-
-#exp-points {
-    grid-area: exp-points;
-}
-
-#level {
-    grid-area: level;
-}
-
-#hit-points {
-    grid-area: hit-points;
-}
-
-#saving-throws {
-    grid-area: saving-throws;
-}
+/* Grid Area Assignments */
 
 #abilities{
     grid-area: abilities;
-}
-
-#die-roller {
-    grid-area: die-roller;
 }
 
 #armor-class {
     grid-area: armor-class;
 }
 
-#speed {
-    grid-area: speed;
+#characteristics {
+    grid-area: characteristics;
 }
 
-#initiative {
-    grid-area: initiative;
-}
-
-#skills {
-    grid-area: skills;
+#cname {
+    grid-area: cname;
 }
 
 #death-saves {
     grid-area: death-saves;
 }
 
+#die-roller {
+    grid-area: die-roller;
+}
+
+#exp-points {
+    grid-area: exp-points;
+}
+
 #hit-dice {
     grid-area: hit-dice;
+}
+
+#hit-points {
+    grid-area: hit-points;
+}
+
+#initiative {
+    grid-area: initiative;
+}
+
+#level {
+    grid-area: level;
+}
+
+#miscellany {
+    grid-area: miscellany;
 }
 
 #notes {
     grid-area: notes;
 }
 
-#miscellany {
-    grid-area: miscellany;
+#saving-throws {
+    grid-area: saving-throws;
+}
+#skills {
+    grid-area: skills;
+}
+
+#speed {
+    grid-area: speed;
 }
