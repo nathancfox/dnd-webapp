@@ -26,12 +26,12 @@ main  {
         "armor-class speed initiative skills abilities die-roller die-roller"
         "death-saves death-saves hit-dice skills abilities die-roller die-roller"
         "notes notes notes skills abilities die-roller die-roller"
-        "notes notes notes miscellany miscellany die-roller die-roller";
+        "notes notes notes skills miscellany die-roller die-roller";
     gap: 2px;
     height: 80vh;
 }
 
-/* Text Types */
+/* Element Types */
 
 h1 {
     display: inline-block;
@@ -49,6 +49,14 @@ h3 {
     padding-left: 0px;
     border-bottom: 2px solid #777777;
     width:15em;
+}
+
+textarea {
+    width: 100%;
+    height: 85%;
+    margin: 10px;
+    margin-left: 0;
+    box-sizing: border-box;
 }
 
 /* Classes - General */
@@ -91,6 +99,17 @@ input {
 input[type=number] {
     width: 10em;
 }
+
+input.inline {
+    display: inline;
+}
+
+form[name=notes] {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
 
 /* Dice Roller Utility */
 
