@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Nathan Fox">
+        <meta name="description" content="Dungeons and Dragons 5e Character Sheet Manager">
+        <title>DnD Web App</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        {% block scripts %}{% endblock %}
+    </head>
+    <body>
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+        <main>
+            {% block content%}{% endblock %}
+        </main>
+    </body>
+</html>
