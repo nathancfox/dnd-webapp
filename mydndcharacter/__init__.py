@@ -26,12 +26,6 @@ def create_app(test_config=None):
 
     app.debug = True
 
-    from . import db
-    db.init_app(app)
-
-    from . import auth
-    app.register_blueprint(auth.bp)
-
     from . import charactersheet
     app.register_blueprint(charactersheet.bp)
     app.add_url_rule('/', endpoint='index')
