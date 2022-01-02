@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
 {% block scripts %}
 <script src="{{ url_for('static', filename='dice.js') }}" defer></script>
-<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 {% endblock %}
 
 {% block header %}
