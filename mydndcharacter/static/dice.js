@@ -6,8 +6,8 @@ for (let i = 0; i < dice.length; i++) {
     for (let j = 0; j < dice[i].children.length; j++) {
         if (dice[i].children[j].className === 'die-result') {
             new_die.result_id = dice[i].children[j].id;
-        } else if (dice[i].children[j].className === 'roll-button') {
-            new_die.button_id = dice[i].children[j].id;
+        } else if (dice[i].children[j].className === 'die-button-container') {
+            new_die.button_id = dice[i].children[j].children[0].id;
         }
     }
     dice_objs.set(dice[i].id, new_die);
@@ -44,7 +44,14 @@ for (let [key, value] of dice_objs) {
 
 function updateResult(number, result_id, multiplier) {
     result = document.querySelector('#' + result_id);
-    result.textContent = roll(number, multiplier);
+    roll_result = roll(number, multiplier);
+    if (multiplier == 10) {
+        roll_result -= 10;
+        if (roll_result == 0) {
+            roll_result = "00";
+        }
+    }
+    result.textContent = roll_result;
 }
 
 function roll(max, multiplier) {
