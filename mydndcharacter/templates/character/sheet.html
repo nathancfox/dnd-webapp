@@ -1,0 +1,394 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='dice.js') }}" defer></script>
+{% endblock %}
+
+{% block header %}
+<h1>Dungeons and Dragons 5e Character Sheet Manager</h1>
+<button type="submit" id="charsheet-save" name="charsheet_save" form="charsheet">Save</button>
+<button type="submit" id="charsheet-load" name="charsheet_load" form="charsheet">Load</button>
+{% endblock %}
+
+{% block content %}
+<form id="charsheet" method="post" autocomplete="off"></form>
+<section class="module" id="cname">
+    <legend class="module-label">Character Name</legend>
+    <label class="form-element-label">
+        <input type="text" form="charsheet" name="cname-val" required>
+    </label>
+</section>
+<section class="module" id="characteristics">
+    <fieldset class="flex-rows">
+            <legend class="module-label">Characteristics</legend>
+            <label class="form-element-label"><span class="fixed-width-label">Race</span>
+                <select form="charsheet" name="race-val">
+                    <option value=""></option>
+                    <option value="dwarf">Dwarf</option>
+                    <option value="elf">Elf</option>
+                    <option value="halfling">Halfling</option>
+                    <option value="human">Human</option>
+                    <option value="dragonborn">Dragonborn</option>
+                    <option value="gnome">Gnome</option>
+                    <option value="half_elf">Half-Elf</option>
+                    <option value="half_orc">Half-Orc</option>
+                    <option value="tiefling">Tiefling</option>
+                </select>
+            </label>
+            <label class="form-element-label"><span class="fixed-width-label">Class</span>
+                <select form="charsheet" name="class-val">
+                    <option value=""></option>
+                    <option value="barbarian">Barbarian</option>
+                    <option value="bard">Bard</option>
+                    <option value="cleric">Cleric</option>
+                    <option value="druid">Druid</option>
+                    <option value="fighter">Fighter</option>
+                    <option value="monk">Monk</option>
+                    <option value="paladin">Paladin</option>
+                    <option value="ranger">Ranger</option>
+                    <option value="rogue">Rogue</option>
+                    <option value="sorcerer">Sorcerer</option>
+                    <option value="warlock">Warlock</option>
+                    <option value="wizard">Wizard</option>
+                </select>
+            </label>
+            <label class="form-element-label"><span class="fixed-width-label">Background</span>
+                <select form="charsheet" name="background-val">
+                    <option value=""></option>
+                    <option value="acolyte">Acolyte</option>
+                    <option value="charlatan">Charlatan</option>
+                    <option value="criminal">Criminal</option>
+                    <option value="entertainer">Entertainer</option>
+                    <option value="folk_hero">Folk Hero</option>
+                    <option value="guild_artisan">Guild Artisan</option>
+                    <option value="hermit">Hermit</option>
+                    <option value="noble">Noble</option>
+                    <option value="outlander">Outlander</option>
+                    <option value="sage">Sage</option>
+                    <option value="sailor">Sailor</option>
+                    <option value="soldier">Soldier</option>
+                    <option value="urchin">Urchin</option>
+                </select>
+            </label>
+            <label class="form-element-label"><span class="fixed-width-label">Alignment</span>
+                <select form="charsheet" name="alignment-val">
+                    <option value=""></option>
+                    <optgroup label="Lawful">
+                        <option value="lawful_good">Lawful Good</option>
+                        <option value="lawful_neutral">Lawful Neutral</option>
+                        <option value="lawful_evil">Lawful Evil</option>
+                    </optgroup>
+                    <optgroup label="Neutral">
+                        <option value="neutral_good">Neutral Good</option>
+                        <option value="neutral_neutral">True Neutral</option>
+                        <option value="neutral_evil">Neutral Evil</option>
+                    </optgroup>
+                    <optgroup label="Chaotic">
+                        <option value="chaotic_good">Chaotic Good</option>
+                        <option value="chaotic_neutral">Chaotic Neutral</option>
+                        <option value="chaotic_evil">Chaotic Evil</option>
+                    </optgroup>
+                </select>
+            </label>
+    </fieldset>
+</section>
+<section class="module" id="level">
+    <legend class="module-label">Level</legend>
+    <label class="form-element-label">
+        <input type="number" min="1" placeholder="0" form="charsheet" name="level-val">
+    </label>
+    <legend class="module-label">XP</legend>
+    <label class="form-element-label">
+        <input type="number" min="0" placeholder="0" form="charsheet" name="exp-points-val">
+    </label>
+</section>
+<section class="module" id="hit-points">
+    <legend class="module-label">Hit Points</legend>
+    <div>
+        <input type="number" min="1" class="inline" placeholder="0" form="charsheet" name="hit-points-val">
+        <span> / </span>
+        <input type="number" min="1" class="inline" placeholder="0" form="charsheet" name="max-hit-points-val">
+        <span>MAX</span>
+    </div>
+    <div>
+        <span>+</span>
+        <input type="number" min="1" class="inline" placeholder="0" form="charsheet" name="temp-hit-points-val">
+        <span>TEMP</span>
+    </div>
+</section>
+<section class="module" id="saving-throws">
+    <fieldset class="flex-cols">
+        <legend class="module-label">Saving Throws</legend>
+        <div>
+            <label>Strength
+                <input type="checkbox" class="inline" form="charsheet" name="strength-sav-throw-prof-val">
+                <input type="number" placeholder="0" form="charsheet" name="strength-sav-throw-num-val">
+            </label>
+        </div>
+        <div>
+            <label>Dexterity
+                <input type="checkbox" class="inline" form="charsheet" name="dexterity-sav-throw-prof-val">
+                <input type="number" placeholder="0" form="charsheet" name="dexterity-sav-throw-num-val">
+            </label>
+        </div>
+        <div>
+            <label>Constitution
+                <input type="checkbox" class="inline" form="charsheet" name="constitution-sav-throw-prof-val">
+                <input type="number" placeholder="0" form="charsheet" name="constitution-sav-throw-num-val">
+            </label>
+        </div>
+        <div>
+            <label>Intelligence
+                <input type="checkbox" class="inline" form="charsheet" name="intelligence-sav-throw-prof-val">
+                <input type="number" placeholder="0" form="charsheet" name="intelligence-sav-throw-num-val">
+            </label>
+        </div>
+        <div>
+            <label>Wisdom
+                <input type="checkbox" class="inline" form="charsheet" name="wisdom-sav-throw-prof-val">
+                <input type="number" placeholder="0" form="charsheet" name="wisdom-sav-throw-num-val">
+            </label>
+        </div>
+        <div>
+            <label>Charisma
+                <input type="checkbox" class="inline" form="charsheet" name="charisma-sav-throw-prof-val">
+                <input type="number" placeholder="0" form="charsheet" name="charisma-sav-throw-num-val">
+            </label>
+        </div>
+    </fieldset>
+</section>
+<section class="module" id="abilities">
+    <fieldset class="flex-cols">
+            <legend class="module-label">Abilities</legend>
+            <label class="form-element-label"><span class="fixed-width-label">Strength</span>
+                <input type="number" min="1" max="30" placeholder="0" form="charsheet" name="strength-val">
+                <select form="charsheet" name="strength-modifier-sign">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                </select>
+                <input type="number" placeholder="0" form="charsheet" name="strength-modifier-val">
+            </label>
+            <label class="form-element-label"><span class="fixed-width-label">Dexterity</span>
+                <input type="number" min="1" max="30" placeholder="0" form="charsheet" name="dexterity-val">
+                <select form="charsheet" name="dexterity-modifier-sign">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                </select>
+                <input type="number" placeholder="0" form="charsheet" name="dexterity-modifier-val">
+            </label>
+            <label class="form-element-label"><span class="fixed-width-label">Constitution</span>
+                <input type="number" min="1" max="30" placeholder="0" form="charsheet" name="constitution-val">
+                <select form="charsheet" name="constitution-modifier-sign">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                </select>
+                <input type="number" placeholder="0" form="charsheet" name="constitution-modifier-val">
+            </label>
+            <label class="form-element-label"><span class="fixed-width-label">Intelligence</span>
+                <input type="number" min="1" max="30" placeholder="0" form="charsheet" name="intelligence-val">
+                <select form="charsheet" name="intelligence-modifier-sign">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                </select>
+                <input type="number" placeholder="0" form="charsheet" name="intelligence-modifier-val">
+            </label>
+            <label class="form-element-label"><span class="fixed-width-label">Wisdom</span>
+                <input type="number" min="1" max="30" placeholder="0" form="charsheet" name="wisdom-val">
+                <select form="charsheet" name="wisdom-modifier-sign">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                </select>
+                <input type="number" placeholder="0" form="charsheet" name="wisdom-modifier-val">
+            </label>
+            <label class="form-element-label"><span class="fixed-width-label">Charisma</span>
+                <input type="number" min="1" max="30" placeholder="0" form="charsheet" name="charisma-val">
+                <select form="charsheet" name="charisma-modifier-sign">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                </select>
+                <input type="number" placeholder="0" form="charsheet" name="charisma-modifier-val">
+            </label>
+    </fieldset>
+</section>
+<section class="module" id="armor-class">
+    <legend class="module-label">Armor Class</legend>
+    <label class="form-element-label">
+        <input type="number" min="1" placeholder="0" form="charsheet" id="armor-class-val">
+    </label>
+</section>
+<section class="module" id="speed">
+    <legend class="module-label">Speed</legend>
+    <input type="number" min="1" placeholder="0" form="charsheet" name="speed-val">
+    <span>feet</span>
+</section>
+<section class="module" id="initiative">
+    <legend class="module-label">Initiative</legend>
+    <label class="form-element-label">
+        <input type="number" min="1" placeholder="0" form="charsheet" name="initiative-val">
+    </label>
+</section>
+<section class="module" id="skills">
+    <label class="form-element-label">Acrobatics <i>(Dex)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="acrobatics-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="acrobatics-num-val">
+    </label>
+    <label class="form-element-label">Animal Handling <i>(Wis)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="animal-handling-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="animal-handling-num-val">
+    </label>
+    <label class="form-element-label">Arcana <i>(Int)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="arcana-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="arcana-num-val">
+    </label>
+    <label class="form-element-label">Athletics <i>(Str)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="athletics-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="athletics-num-val">
+    </label>
+    <label class="form-element-label">Deception <i>(Cha)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="deception-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="deception-num-val">
+    </label>
+    <label class="form-element-label">History <i>(Int)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="history-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="history-num-val">
+    </label>
+    <label class="form-element-label">Insight <i>(Wis)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="insight-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="insight-num-val">
+    </label>
+    <label class="form-element-label">Intimidation <i>(Cha)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="intimidation-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="intimidation-num-val">
+    </label>
+    <label class="form-element-label">Investigation <i>(Int)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="investigation-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="investigation-num-val">
+    </label>
+    <label class="form-element-label">Medicine <i>(Wis)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="medicine-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="medicine-num-val">
+    </label>
+    <label class="form-element-label">Nature <i>(Int)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="nature-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="nature-num-val">
+    </label>
+    <label class="form-element-label">Perception <i>(Wis)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="perception-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="perception-num-val">
+    </label>
+    <label class="form-element-label">Performance <i>(Cha)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="performance-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="performance-num-val">
+    </label>
+    <label class="form-element-label">Persuasion <i>(Cha)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="persuasion-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="persuasion-num-val">
+    </label>
+    <label class="form-element-label">Religion <i>(Int)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="religion-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="religion-num-val">
+    </label>
+    <label class="form-element-label">Sleight of Hand <i>(Dex)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="sleight-of-hand-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="sleight-of-hand-num-val">
+    </label>
+    <label class="form-element-label">Stealth <i>(Dex)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="stealth-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="stealth-num-val">
+    </label>
+    <label class="form-element-label">Survival <i>(Wis)</i>
+        <input type="checkbox" class="inline" form="charsheet" name="survival-prof-val">
+        <input type="number" placeholder="0" form="charsheet" name="survival-num-val">
+    </label>
+</section>
+<section class="module" id="death-saves">
+    <legend class="module-label">Death Saves</legend>
+    <fieldset>
+        <legend>Successes</legend>
+        <input type="checkbox" form="charsheet" name="death-save-success-1-val">
+        <input type="checkbox" form="charsheet" name="death-save-success-2-val">
+        <input type="checkbox" form="charsheet" name="death-save-success-3-val">
+    </fieldset>
+    <fieldset>
+        <legend>Failures</legend>
+        <input type="checkbox" form="charsheet" name="death-save-failure-1-val">
+        <input type="checkbox" form="charsheet" name="death-save-failure-2-val">
+        <input type="checkbox" form="charsheet" name="death-save-failure-3-val">
+    </fieldset>
+</section>
+<section class="module" id="hit-dice">
+    <legend class="module-label">Hit Dice</legend>
+    <input type="number" min="1" placeholder="0" form="charsheet" name="hit-dice-num-val">
+    <select form="charsheet" name="hit-dice-die-val">
+        <option value="d6">d6</option>
+        <option value="d8">d8</option>
+        <option value="d10">d10</option>
+        <option value="d12">d12</option>
+    </select>
+</section>
+<section class="module" id="notes">
+    <legend class="module-label">Notes</legend>
+    <textarea form="charsheet" name="notes-val"></textarea>
+</section>
+<section class="module" id="miscellany">
+    <label class="form-element-label">Inspiration
+        <input type="checkbox" form="charsheet" name="inspiration-val">
+    </label>
+    <label class="form-element-label">Proficiency Bonus
+        <input type="number" min="1" placeholder="0" form="charsheet" name="proficiency-bonus-val">
+    </label>
+    <label class="form-element-label">Passive Perception
+        <input type="number" min="1" placeholder="0" form="charsheet" name="passive-perception-val">
+    </label>
+</section>
+<section class="module" id="die-roller">
+    <div class="flex-cols" id="dice-container">
+        <div class="die" id="d4" number="4">
+            <div class="die-button-container">
+                <button type="button" class="roll-button" id="roll-d4">d4</button>
+            </div>
+            <span class="die-result" id="d4-result"></span>
+        </div>
+        <div class="die" id="d6" number="6">
+            <div class="die-button-container">
+                <button type="button" class="roll-button" id="roll-d6">d6</button>
+            </div>
+            <span class="die-result" id="d6-result"></span>
+        </div>
+        <div class="die" id="d8" number="8">
+            <div class="die-button-container">
+                <button type="button" class="roll-button" id="roll-d8">d8</button>
+            </div>
+            <span class="die-result" id="d8-result"></span>
+        </div>
+        <div class="die" id="d10" number="10">
+            <div class="die-button-container">
+                <button type="button" class="roll-button" id="roll-d10">d10</button>
+            </div>
+            <span class="die-result" id="d10-result"></span>
+        </div>
+        <div class="die" id="d100" number="10">  <!--Hardcoded d10(0)-->
+            <div class="die-button-container">
+                <button type="button" class="roll-button" id="roll-d100">d100</button>
+            </div>
+            <span class="die-result" id="d100-result"></span>
+        </div>
+        <div class="die" id="d12" number="12">
+            <div class="die-button-container">
+                <button type="button" class="roll-button" id="roll-d12">d12</button>
+            </div>
+            <span class="die-result" id="d12-result"></span>
+        </div>
+        <div class="die" id="d20" number="20">
+            <div class="die-button-container">
+                <button type="button" class="roll-button" id="roll-d20">d20</button>
+            </div>
+            <span class="die-result" id="d20-result"></span>
+        </div>
+    </div>
+</section>
+{% endblock %}
