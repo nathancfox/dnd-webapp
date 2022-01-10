@@ -24,8 +24,8 @@ main  {
         "cname characteristics characteristics characteristics characteristics characteristics skills skills level"
         "hit-points armor-class speed initiative abilities abilities skills skills die-roller"
         "death-saves hit-dice miscellany miscellany abilities abilities skills skills die-roller"
-        "notes notes notes notes notes saving-throws skills skills die-roller"
-        "notes notes notes notes notes saving-throws skills skills die-roller";
+        "notes notes notes notes saving-throws saving-throws skills skills die-roller"
+        "notes notes notes notes saving-throws saving-throws skills skills die-roller";
     gap: 2px;
     height: 90vh;
 }
