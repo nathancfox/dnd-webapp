@@ -18,17 +18,16 @@ header {
 
 main  {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
-        "cname characteristics characteristics characteristics characteristics exp-points level"
-        "hit-points hit-points hit-points saving-throws abilities die-roller die-roller"
-        "armor-class speed initiative skills abilities die-roller die-roller"
-        "death-saves death-saves hit-dice skills abilities die-roller die-roller"
-        "notes notes notes skills abilities die-roller die-roller"
-        "notes notes notes skills miscellany die-roller die-roller";
+        "cname characteristics characteristics characteristics characteristics characteristics skills skills level"
+        "hit-points armor-class speed initiative abilities abilities skills skills die-roller"
+        "death-saves hit-dice miscellany miscellany abilities abilities skills skills die-roller"
+        "notes notes notes notes saving-throws saving-throws skills skills die-roller"
+        "notes notes notes notes saving-throws saving-throws skills skills die-roller";
     gap: 2px;
-    height: 80vh;
+    height: 90vh;
 }
 
 /* Element Types */
@@ -37,6 +36,7 @@ h1 {
     display: inline-block;
     margin-top: 10px;
     margin-bottom: 50px;
+    margin-left: 20px;
     padding: 10px;
     padding-left: 0px;
     border-bottom: 2px solid #777777;
@@ -98,7 +98,7 @@ input {
 }
 
 input[type=number] {
-    width: 4em;
+    width: 3em;
     -moz-appearance:textfield;
 }
 
@@ -121,31 +121,38 @@ form[name=notes] {
 
 /* Dice Roller Utility */
 
-.die {
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+#dice-container {
     align-items: center;
-    padding: 0px 0px 10px 0px;
+}
+
+.die {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 120px;
+    margin: 10px 0px; 
 }
 
 .die-result {
-    border: 3px solid #000000;
-    background-color: #0000FF33;
     width: 60px;
     height: 60px;
-    margin: 0px 0px 10px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.8em;
+    border: 3px solid #000000;
+    background-color: #0000FF33;
+    font-size: 1.65em;
     font-family: sans-serif;
+}
+
+.die-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 10px; */
 }
 
 .roll-button {
     display: block;
-    margin: 10px 0px 0px 0px;
 }
 
 /* Grid Area Assignments */

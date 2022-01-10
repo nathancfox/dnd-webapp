@@ -96,53 +96,70 @@
             </label>
     </fieldset>
 </section>
-<section class="module" id="exp-points">
-    <legend class="module-label">Experience Points</legend>
-    <label class="form-element-label">
-        <input type="number" min="0" placeholder="0" form="charsheet" name="exp-points-val">
-    </label>
-</section>
 <section class="module" id="level">
     <legend class="module-label">Level</legend>
     <label class="form-element-label">
         <input type="number" min="1" placeholder="0" form="charsheet" name="level-val">
     </label>
+    <legend class="module-label">XP</legend>
+    <label class="form-element-label">
+        <input type="number" min="0" placeholder="0" form="charsheet" name="exp-points-val">
+    </label>
 </section>
 <section class="module" id="hit-points">
     <legend class="module-label">Hit Points</legend>
-    <input type="number" min="1" class="inline" placeholder="0" form="charsheet" name="hit-points-val">
-    <span> / </span>
-    <input type="number" min="1" class="inline" placeholder="0" form="charsheet" name="max-hit-points-val">
-    <span> MAX + </span>
-    <input type="number" min="1" class="inline" placeholder="0" form="charsheet" name="temp-hit-points-val">
-    <span> TEMP</span>
+    <div>
+        <input type="number" min="1" class="inline" placeholder="0" form="charsheet" name="hit-points-val">
+        <span> / </span>
+        <input type="number" min="1" class="inline" placeholder="0" form="charsheet" name="max-hit-points-val">
+        <span>MAX</span>
+    </div>
+    <div>
+        <span>+</span>
+        <input type="number" min="1" class="inline" placeholder="0" form="charsheet" name="temp-hit-points-val">
+        <span>TEMP</span>
+    </div>
 </section>
 <section class="module" id="saving-throws">
-    <legend class="module-label">Saving Throws</legend>
-    <label class="form-element-label">Strength
-        <input type="checkbox" class="inline" form="charsheet" name="strength-sav-throw-prof-val">
-        <input type="number" placeholder="0" form="charsheet" name="strength-sav-throw-num-val">
-    </label>
-    <label class="form-element-label">Dexterity
-        <input type="checkbox" class="inline" form="charsheet" name="dexterity-sav-throw-prof-val">
-        <input type="number" placeholder="0" form="charsheet" name="dexterity-sav-throw-num-val">
-    </label>
-    <label class="form-element-label">Constitution
-        <input type="checkbox" class="inline" form="charsheet" name="constitution-sav-throw-prof-val">
-        <input type="number" placeholder="0" form="charsheet" name="constitution-sav-throw-num-val">
-    </label>
-    <label class="form-element-label">Intelligence
-        <input type="checkbox" class="inline" form="charsheet" name="intelligence-sav-throw-prof-val">
-        <input type="number" placeholder="0" form="charsheet" name="intelligence-sav-throw-num-val">
-    </label>
-    <label class="form-element-label">Wisdom
-        <input type="checkbox" class="inline" form="charsheet" name="wisdom-sav-throw-prof-val">
-        <input type="number" placeholder="0" form="charsheet" name="wisdom-sav-throw-num-val">
-    </label>
-    <label class="form-element-label">Charisma
-        <input type="checkbox" class="inline" form="charsheet" name="charisma-sav-throw-prof-val">
-        <input type="number" placeholder="0" form="charsheet" name="charisma-sav-throw-num-val">
-    </label>
+    <fieldset class="flex-cols">
+        <legend class="module-label">Saving Throws</legend>
+        <div>
+            <label>Strength
+                <input type="checkbox" class="inline" form="charsheet" name="strength-sav-throw-prof-val">
+                <input type="number" placeholder="0" form="charsheet" name="strength-sav-throw-num-val">
+            </label>
+        </div>
+        <div>
+            <label>Dexterity
+                <input type="checkbox" class="inline" form="charsheet" name="dexterity-sav-throw-prof-val">
+                <input type="number" placeholder="0" form="charsheet" name="dexterity-sav-throw-num-val">
+            </label>
+        </div>
+        <div>
+            <label>Constitution
+                <input type="checkbox" class="inline" form="charsheet" name="constitution-sav-throw-prof-val">
+                <input type="number" placeholder="0" form="charsheet" name="constitution-sav-throw-num-val">
+            </label>
+        </div>
+        <div>
+            <label>Intelligence
+                <input type="checkbox" class="inline" form="charsheet" name="intelligence-sav-throw-prof-val">
+                <input type="number" placeholder="0" form="charsheet" name="intelligence-sav-throw-num-val">
+            </label>
+        </div>
+        <div>
+            <label>Wisdom
+                <input type="checkbox" class="inline" form="charsheet" name="wisdom-sav-throw-prof-val">
+                <input type="number" placeholder="0" form="charsheet" name="wisdom-sav-throw-num-val">
+            </label>
+        </div>
+        <div>
+            <label>Charisma
+                <input type="checkbox" class="inline" form="charsheet" name="charisma-sav-throw-prof-val">
+                <input type="number" placeholder="0" form="charsheet" name="charisma-sav-throw-num-val">
+            </label>
+        </div>
+    </fieldset>
 </section>
 <section class="module" id="abilities">
     <fieldset class="flex-cols">
@@ -215,7 +232,6 @@
     </label>
 </section>
 <section class="module" id="skills">
-    <legend class="module-label">Skills</legend>
     <label class="form-element-label">Acrobatics <i>(Dex)</i>
         <input type="checkbox" class="inline" form="charsheet" name="acrobatics-prof-val">
         <input type="number" placeholder="0" form="charsheet" name="acrobatics-num-val">
@@ -330,35 +346,48 @@
     </label>
 </section>
 <section class="module" id="die-roller">
-    <h3>Die Rolling Utility</h3>
-    <div class="flex-rows" id="dice-container">
+    <div class="flex-cols" id="dice-container">
         <div class="die" id="d4" number="4">
-            <p class="die-result" id="d4-result"></p>
-            <button type="button" class="roll-button" id="roll-d4">d4</button>
+            <div class="die-button-container">
+                <button type="button" class="roll-button" id="roll-d4">d4</button>
+            </div>
+            <span class="die-result" id="d4-result"></span>
         </div>
         <div class="die" id="d6" number="6">
-            <p class="die-result" id="d6-result"></p>
-            <button type="button" class="roll-button" id="roll-d6">d6</button>
+            <div class="die-button-container">
+                <button type="button" class="roll-button" id="roll-d6">d6</button>
+            </div>
+            <span class="die-result" id="d6-result"></span>
         </div>
         <div class="die" id="d8" number="8">
-            <p class="die-result" id="d8-result"></p>
-            <button type="button" class="roll-button" id="roll-d8">d8</button>
+            <div class="die-button-container">
+                <button type="button" class="roll-button" id="roll-d8">d8</button>
+            </div>
+            <span class="die-result" id="d8-result"></span>
         </div>
         <div class="die" id="d10" number="10">
-            <p class="die-result" id="d10-result"></p>
-            <button type="button" class="roll-button" id="roll-d10">d10</button>
+            <div class="die-button-container">
+                <button type="button" class="roll-button" id="roll-d10">d10</button>
+            </div>
+            <span class="die-result" id="d10-result"></span>
         </div>
         <div class="die" id="d100" number="10">  <!--Hardcoded d10(0)-->
-            <p class="die-result" id="d100-result"></p>
-            <button type="button" class="roll-button" id="roll-d100">d100</button>
+            <div class="die-button-container">
+                <button type="button" class="roll-button" id="roll-d100">d100</button>
+            </div>
+            <span class="die-result" id="d100-result"></span>
         </div>
         <div class="die" id="d12" number="12">
-            <p class="die-result" id="d12-result"></p>
-            <button type="button" class="roll-button" id="roll-d12">d12</button>
+            <div class="die-button-container">
+                <button type="button" class="roll-button" id="roll-d12">d12</button>
+            </div>
+            <span class="die-result" id="d12-result"></span>
         </div>
         <div class="die" id="d20" number="20">
-            <p class="die-result" id="d20-result"></p>
-            <button type="button" class="roll-button" id="roll-d20">d20</button>
+            <div class="die-button-container">
+                <button type="button" class="roll-button" id="roll-d20">d20</button>
+            </div>
+            <span class="die-result" id="d20-result"></span>
         </div>
     </div>
 </section>
