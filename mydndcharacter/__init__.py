@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask
-from . import charactersheet
+from . import endpoints
 
 
 def create_app(test_config=None):
@@ -16,7 +16,7 @@ def create_app(test_config=None):
 
     app.debug = True
 
-    app.register_blueprint(charactersheet.bp)
+    app.register_blueprint(endpoints.bp)
 
 
     return app
